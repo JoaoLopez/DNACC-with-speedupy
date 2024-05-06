@@ -22,13 +22,13 @@ num_tethers = 200
 box_L = 200 * nm
 plates = dnacc.Plates(Lx=box_L, Ly=box_L, periodic=True)
 
-for (x, y) in np.random.random_sample((num_tethers / 2, 2)):
+for (x, y) in np.random.random_sample((int(num_tethers / 2), 2)):
     plates.add_tether(plate='lower',
                       sticky_end='alpha',
                       L=20 * nm,
                       pos=(x * box_L, y * box_L))
 
-for (x, y) in np.random.random_sample((num_tethers / 2, 2)):
+for (x, y) in np.random.random_sample((int(num_tethers / 2), 2)):
     plates.add_tether(plate='upper',
                       sticky_end='alphap',
                       L=20 * nm,
@@ -41,4 +41,4 @@ print("# Delta G_0 (kT)     Bonds Formed / Max possible")
 for dg in np.linspace(-20.0, 0.0, 21):
     plates.beta_DeltaG0['alpha', 'alphap'] = dg
     plates.update(DeltaG0_only=True)
-    print dg, (plates.avg_num_bonds / (num_tethers / 2))
+    print(dg, (plates.avg_num_bonds / (num_tethers / 2)))

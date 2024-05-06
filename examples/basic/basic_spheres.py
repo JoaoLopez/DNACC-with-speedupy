@@ -40,4 +40,4 @@ V_sphere_arr = dnacc.calc_spheres_potential(h_arr, V_plate_arr, R)
 
 print("# h (nm)     V (kT)")
 for (h, V) in zip(h_arr, V_sphere_arr):
-    print (h / nm), V
+    print ((h / nm), V)
