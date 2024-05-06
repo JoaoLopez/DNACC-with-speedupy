@@ -326,8 +326,8 @@ def do_potentials(name_x, name_y, plates, plates_mf, dg0_arr, h_arr):
 
     try:
         with working_directory('gp'):
-            subprocess.call(['gnuplot', 'plot_%s_%s_plate_potentials.gp' %
-                             (name_x, name_y)])
+            subprocess.Popen(['gnuplot', 'plot_%s_%s_plate_potentials.gp' %
+                             (name_x, name_y)]).terminate()
     except Exception:
         pass
 
@@ -351,8 +351,8 @@ def do_potentials(name_x, name_y, plates, plates_mf, dg0_arr, h_arr):
 
     try:
         with working_directory('gp'):
-            subprocess.call(['gnuplot', 'plot_%s_%s_sphere_potentials.gp' %
-                             (name_x, name_y)])
+            subprocess.Popen(['gnuplot', 'plot_%s_%s_sphere_potentials.gp' %
+                             (name_x, name_y)]).terminate()
     except Exception:
         pass
 
@@ -371,7 +371,7 @@ def read_Qij_over_Qi_Qj(h, realisation):
 
         # First line tells you how many tethers there are on the left
         # and right spheres
-        numA, numB = (int(_) for _ in f.next().split())
+        numA, numB = (int(_) for _ in next(f).split())
 
         # Then, there are numA blocks of the form:
         #  number of partners k
@@ -381,10 +381,10 @@ def read_Qij_over_Qi_Qj(h, realisation):
         #
         # Remember, the indices are 1-based, not 0-based like we use
         # in Python
-        for i in xrange(numA):
-            num_partners = int(f.next())
-            for jj in xrange(num_partners):
-                fields = f.next().split()
+        for i in range(numA):
+            num_partners = int(next(f))
+            for jj in range(num_partners):
+                fields = next(f).split()
 
                 j = int(fields[0]) - 1 + numA
                 Qij_over_Qi_Qj[i, j] = float(fields[1]) * (1.0 / l_Kuhn ** 3)
@@ -405,18 +405,18 @@ def read_Qi_over_Qinf(h, realisation):
             'hdist_%d.%d' % (int(h / l_Kuhn), realisation),
             'rep1.dat'), 'r') as f:
 
-        numA = int(f.next())
-        for i in xrange(numA):
-            Qi_over_Qinf.append(float(f.next()))
+        numA = int(next(f))
+        for i in range(numA):
+            Qi_over_Qinf.append(float(next(f)))
 
     with open(os.path.join(
             'mc_results_bortolo', 'A_B_results', 'spheres_mc_explicit_DGIJ',
             'hdist_%d.%d' % (int(h / l_Kuhn), realisation),
             'rep2.dat'), 'r') as f:
 
-        numB = int(f.next())
-        for j in xrange(numB):
-            Qi_over_Qinf.append(float(f.next()))
+        numB = int(next(f))
+        for j in range(numB):
+            Qi_over_Qinf.append(float(next(f)))
 
     return np.asarray(Qi_over_Qinf)
 
@@ -429,7 +429,7 @@ def do_explicit_spheres(prefix, dg0_arr):
 
     results = {}
 
-    realisation_arr = range(1, 16)
+    realisation_arr = list(range(1, 16))
     # Skip the one realisation that didn't end in time
     realisation_arr.remove(11)
 
@@ -447,11 +447,11 @@ def do_explicit_spheres(prefix, dg0_arr):
         Qi_over_Qinf_nonint = 0.1999
 
         for realisation in realisation_arr:
-            print '-- realisation %d' % realisation
+            print('-- realisation %d' % realisation)
             results[realisation] = {}
 
             for h in h_arr:
-                print 'h = %g nm' % (h / nm)
+                print('h = %g nm' % (h / nm))
 
                 results[realisation][h] = {}
 
@@ -465,7 +465,7 @@ def do_explicit_spheres(prefix, dg0_arr):
                 for dg0 in dg0_arr:
                     boltz_bind = dict()
                     boltz_fac = exp(-dg0)
-                    for key, value in Qij_over_Qi_Qj.iteritems():
+                    for key, value in Qij_over_Qi_Qj.items():
                         boltz_bind[key] = boltz_fac * value / (1 * units.M)
                     boltz_bind_csr = dnacc.utils.csr_matrix_from_dict(
                         (N, N), boltz_bind)
@@ -546,7 +546,7 @@ def do_explicit_spheres(prefix, dg0_arr):
                     prefix + '_results_%d.txt' % realisation), 'r') as f:
 
                 # Skip first line
-                f.next()
+                next(f)
 
                 for line in f:
                     fields = line.split()
@@ -625,8 +625,8 @@ def do_explicit_spheres(prefix, dg0_arr):
 
     try:
         with working_directory('gp'):
-            subprocess.call(['gnuplot', 'plot_%s_avg_num_bonds.gp' %
-                             prefix])
+            subprocess.Popen(['gnuplot', 'plot_%s_avg_num_bonds.gp' %
+                             prefix]).terminate()
     except Exception:
         pass
 

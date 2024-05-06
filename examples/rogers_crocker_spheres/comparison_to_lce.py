@@ -137,7 +137,7 @@ for run in [dict(nfree=8, nbound=16),
 
         #for h in (10 * nm, 15 * nm, 20 * nm, 25 * nm):
         for h in (15 * nm, 25 * nm):
-            print outfile, h / nm
+            print(outfile, h / nm)
             plates.at(h)
             plates_meanfield.at(h)
 
@@ -168,7 +168,7 @@ for run in [dict(nfree=8, nbound=16),
 
     try:
         with working_directory('gp'):
-            subprocess.call(['gnuplot', 'plot_%d_%d_lce_comparison.gp' %
-                             (run['nfree'], run['nbound'])])
+            subprocess.Popen(['gnuplot', 'plot_%d_%d_lce_comparison.gp' %
+                             (run['nfree'], run['nbound'])]).terminate()
     except Exception:
         pass

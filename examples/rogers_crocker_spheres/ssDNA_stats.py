@@ -85,7 +85,7 @@ from dnacc.utils import pbc_delta
 # on an irregular grid
 import scipy
 majver, minver = scipy.__version__.split('.')[:2]
-assert majver >= 0 or minver >= 9
+assert int(majver) >= 0 or int(minver) >= 9
 
 
 class ExplicitSSDNAStatistics(object):
@@ -353,7 +353,7 @@ if __name__ == '__main__':
         ax.scatter3D([h / nm for (h, s) in explicit.loop_points],
                      [s / nm for (h, s) in explicit.loop_points],
                      explicit.loop_data)
-        plt.show()
+        plt.show(block=False)
 
         grid_x, grid_y = np.mgrid[0:explicit.max_h_loop:100j,
                                   0:explicit.max_s_loop:100j]
@@ -361,7 +361,7 @@ if __name__ == '__main__':
         ax = Axes3D(fig)
         ax.scatter3D(grid_x.ravel(), grid_y.ravel(),
                      explicit.Qij_over_Qi_Qj_loop((grid_x, grid_y)).ravel())
-        plt.show()
+        plt.show(block=False)
 
     elif False:
 
@@ -369,19 +369,19 @@ if __name__ == '__main__':
 
         h_arr = np.linspace(4 * nm, mf._explicit.max_h_rep, 50)
 
-        print 'Calculating K^bridge(h)...'
+        print('Calculating K^bridge(h)...')
         fig = plt.figure()
         plt.plot(h_arr, [mf._calc(h, kind='bridge') / nm ** 2
                          for h in h_arr])
-        plt.show()
+        plt.show(block=False)
 
-        print 'Calculating K^loop(h)...'
+        print('Calculating K^loop(h)...')
         fig = plt.figure()
         plt.plot(h_arr, [mf._calc(h, kind='loop') / nm ** 2
                          for h in h_arr])
-        plt.show()
+        plt.show(block=False)
 
-        print 'Done'
+        print('Done')
 
     else:
 
@@ -398,4 +398,4 @@ if __name__ == '__main__':
             for (s, Q) in zip(s_arr, Qij_over_Qi_Qj):
                 f.write('%g\t%g\n' % (s, Q))
 
-        plt.show()
+        plt.show(block=False)
