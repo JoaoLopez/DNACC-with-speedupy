@@ -83,7 +83,7 @@ def figure2a():
 
         beta_Delta = 5
 
-        for beta_DeltaG0strong in xrange(-40, 7):
+        for beta_DeltaG0strong in range(-40, 7):
 
             set_competing_interactions(platesXXP,
                                        beta_DeltaG0strong,
@@ -104,7 +104,7 @@ def figure2a():
                                             XXP_UPPER_BETA_P]) / (2 * sigma),
                      minF / (1 / L ** 2)))
 
-    subprocess.call(['gnuplot', 'plot_fig2a.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig2a.gp']).terminate()
 
 
 # Figure 2b
@@ -119,7 +119,7 @@ def figure2b():
 
         beta_Delta = 5
 
-        for beta_DeltaG0strong in xrange(-40, 7):
+        for beta_DeltaG0strong in range(-40, 7):
 
             set_competing_interactions(platesXX,
                                        beta_DeltaG0strong,
@@ -139,7 +139,7 @@ def figure2b():
                      (2 * sigma),
                      minF / (1 / L ** 2)))
 
-    subprocess.call(['gnuplot', 'plot_fig2b.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig2b.gp']).terminate()
 
 
 # Figure 2c
@@ -154,7 +154,7 @@ def figure2c():
 
         beta_Delta = 5
 
-        for beta_DeltaG0strong in xrange(-40, 7):
+        for beta_DeltaG0strong in range(-40, 7):
 
             f.write('# betaDeltaG0strong = %g\n' % beta_DeltaG0strong)
 
@@ -169,7 +169,7 @@ def figure2c():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig2c.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig2c.gp']).terminate()
 
 
 # Figure 3a
@@ -185,7 +185,7 @@ def figure3a():
             reset_plates(platesXX, S)
             reset_plates(platesXXP, S)
 
-            for beta_DeltaG0strong in xrange(-30, 3):
+            for beta_DeltaG0strong in range(-30, 3):
 
                 set_competing_interactions(platesXX,
                                            beta_DeltaG0strong,
@@ -208,7 +208,7 @@ def figure3a():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig3a.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig3a.gp']).terminate()
 
 
 # Figure 3b
@@ -247,7 +247,7 @@ def figure3b():
             platesXXP.tether_types[XXP_LOWER_GAMMA]['L'] = Lincrt
             platesXXP.tether_types[XXP_UPPER_GAMMA]['L'] = Lincrt
 
-            for beta_DeltaG0strong in xrange(-30, 3):
+            for beta_DeltaG0strong in range(-30, 3):
 
                 set_competing_interactions(platesXX,
                                            beta_DeltaG0strong,
@@ -276,7 +276,7 @@ def figure3b():
     reset_plates(platesXX, S)
     reset_plates(platesXXP, S)
 
-    subprocess.call(['gnuplot', 'plot_fig3b.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig3b.gp']).terminate()
 
 
 # Figure 3c
@@ -293,7 +293,7 @@ def figure3c():
             reset_plates(platesXX, S)
             reset_plates(platesXXP, S)
 
-            for beta_DeltaG0strong in xrange(-30, 3):
+            for beta_DeltaG0strong in range(-30, 3):
 
                 set_competing_interactions(platesXX,
                                            beta_DeltaG0strong,
@@ -316,7 +316,7 @@ def figure3c():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig3c.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig3c.gp']).terminate()
 
 
 # Main module
