@@ -66,7 +66,7 @@ def setup_explicit():
 def run_explicit_nbonds():
     for h in np.linspace(0.1 * L, 2.0 * L, 20):
 
-        print 'h = %g L' % (h / L)
+        print('h = %g L' % (h / L))
         explicit_plates.separation = h
         explicit_plates.beta_DeltaG0['alpha', 'alpha_p'] = 10
         explicit_plates.update()
@@ -74,7 +74,7 @@ def run_explicit_nbonds():
         with open('results_h%.1f.txt' % (h / L), 'w') as f:
 
             for beta_DeltaG0 in np.arange(10.0, -20.1, -1):
-                print '    beta_DeltaG0 = %g' % beta_DeltaG0
+                print('    beta_DeltaG0 = %g' % beta_DeltaG0)
                 explicit_plates.beta_DeltaG0['alpha', 'alpha_p'] = \
                     beta_DeltaG0
                 explicit_plates.update(DeltaG0_only=True)
@@ -85,8 +85,8 @@ def run_explicit_nbonds():
 
 ## Then, use explicit-tether system to calculate interaction potentials
 def calc_explicit_potential(beta_DeltaG0):
-    print 'Calculating explicit-tether potential at G_0=%g kT' % beta_DeltaG0
-    print ' [this can take a while...]'
+    print('Calculating explicit-tether potential at G_0=%g kT' % beta_DeltaG0)
+    print(' [this can take a while...]')
 
     explicit_plates.beta_DeltaG0['alpha', 'alpha_p'] = beta_DeltaG0
 
@@ -94,7 +94,7 @@ def calc_explicit_potential(beta_DeltaG0):
         f.write('# h/L\t' 'beta F_att^SC\t' 'beta F^SC\n')
 
         for h in np.linspace(0.1 * L, 2.0 * L, 20):
-            print "    h = %g L" % (h / L)
+            print("    h = %g L" % (h / L))
             explicit_plates.at(h)
 
             betaF = explicit_plates.free_energy
@@ -117,7 +117,7 @@ def setup_mean_field():
 
 # And calculate interaction potentials with it
 def calc_meanfield_potential(beta_DeltaG0):
-    print 'Calculating mean-field potential at G_0=%g kT' % beta_DeltaG0
+    print('Calculating mean-field potential at G_0=%g kT' % beta_DeltaG0)
 
     meanfield_plates.beta_DeltaG0['alpha', 'alphap'] = beta_DeltaG0
 
