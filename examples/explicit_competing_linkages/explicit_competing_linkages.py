@@ -86,24 +86,24 @@ def setup():
     # than it's something different from infinity for all the pairs
     # of strands that may bind during this run
     #
-    print "Initializing configurational entropy factors..."
+    print("Initializing configurational entropy factors...")
     plates.beta_DeltaG0['alpha', 'alpha_p'] = -10
     plates.beta_DeltaG0['alpha', 'beta_p'] = -5
     plates.beta_DeltaG0['beta', 'alpha_p'] = -5
     plates.separation = L
     plates.update()
-    print "Done"
+    print("Done")
 
 
 # For a given difference between strong and weak bond binding strength,
 # map out bonding probabilities
 def do_it(beta_DeltaDeltaG):
 
-    print "Looking at beta_DeltaDeltaG = %g" % beta_DeltaDeltaG
+    print("Looking at beta_DeltaDeltaG = %g" % beta_DeltaDeltaG)
 
     with open('competing_deltaDelta%g.txt' % beta_DeltaDeltaG, 'w') as f:
-        for beta_DeltaG0Strong in xrange(0, -51, -1):
-            print "    beta_DeltaG0Strong = %g" % beta_DeltaG0Strong
+        for beta_DeltaG0Strong in range(0, -51, -1):
+            print("    beta_DeltaG0Strong = %g" % beta_DeltaG0Strong)
             beta_DeltaG0Weak = beta_DeltaG0Strong + beta_DeltaDeltaG
 
             plates.beta_DeltaG0['alpha', 'alpha_p'] = beta_DeltaG0Strong
