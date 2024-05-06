@@ -72,7 +72,7 @@ def figure2():
         for beta_DeltaDeltaG in (3, 5, 8, 11, 14):
             f.write("# beta_DeltaDeltaG = %g kT\n" % beta_DeltaDeltaG)
 
-            for beta_DeltaG0a in xrange(0, -51, -1):
+            for beta_DeltaG0a in range(0, -51, -1):
                 set_competing_interactions(plates, beta_DeltaG0a,
                                            beta_DeltaG0a + beta_DeltaDeltaG)
                 plates.update()
@@ -85,7 +85,7 @@ def figure2():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig2.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig2.gp']).terminate()
 
 
 # Figure 3a
@@ -110,7 +110,7 @@ def figure3a():
                 f.write('# h = %.1f L_alpha\n' % h)
                 single.separation = h * L
 
-                for beta_DeltaG0a in xrange(0, -31, -1):
+                for beta_DeltaG0a in range(0, -31, -1):
                     single.beta_DeltaG0['alpha', 'alphap'] = beta_DeltaG0a
                     single.update()
 
@@ -123,7 +123,7 @@ def figure3a():
 
                 f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig3a.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig3a.gp']).terminate()
 
 
 # Figure 3b
@@ -141,7 +141,7 @@ def figure3b():
         f.write('# betaDeltaG0a (kT)\t' 'n_alpha / N\t' 'n_beta / N\n')
 
         beta_DeltaDeltaG = 8
-        for beta_DeltaG0a in xrange(0, -41, -1):
+        for beta_DeltaG0a in range(0, -41, -1):
             set_competing_interactions(plates, beta_DeltaG0a,
                                        beta_DeltaG0a + beta_DeltaDeltaG)
             plates.update()
@@ -152,7 +152,7 @@ def figure3b():
                      (plates.sigma_bound[ALPHA, BETA_P] +
                       plates.sigma_bound[BETA, ALPHA_P]) / (2 * sigma)))
 
-    subprocess.call(['gnuplot', 'plot_fig3b.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig3b.gp']).terminate()
 
 
 # Figure 4a
@@ -170,7 +170,7 @@ def figure4a():
         for beta_DeltaDeltaG in (-1000, 8, 5, 3):
             f.write("# beta_DeltaDeltaG = %g kT\n" % beta_DeltaDeltaG)
 
-            for beta_DeltaG0b in xrange(-20, 9):
+            for beta_DeltaG0b in range(-20, 9):
                 set_competing_interactions(plates,
                                            beta_DeltaG0b - beta_DeltaDeltaG,
                                            beta_DeltaG0b)
@@ -182,7 +182,7 @@ def figure4a():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig4a.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig4a.gp']).terminate()
 
 
 # Figure 4b
@@ -201,7 +201,7 @@ def figure4b():
         for beta_DeltaDeltaG in (+1000, -1000, 8, 5, 3):
             f.write("# beta_DeltaDeltaG = %g kT\n" % beta_DeltaDeltaG)
 
-            for beta_DeltaG0b in xrange(-24, 5):
+            for beta_DeltaG0b in range(-24, 5):
                 beta_DeltaG0a = beta_DeltaG0b - beta_DeltaDeltaG
                 if beta_DeltaDeltaG == +1000:
                     set_competing_interactions(plates,
@@ -232,7 +232,7 @@ def figure4b():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig4b.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig4b.gp']).terminate()
 
 
 # Figure 5a
@@ -259,7 +259,7 @@ def figure5a():
         for beta_DeltaDeltaG in (3, 5, 8, 11, 14):
             f.write("# beta_DeltaDeltaG = %g\n" % beta_DeltaDeltaG)
 
-            for beta_DeltaG0a in xrange(-40, 1):
+            for beta_DeltaG0a in range(-40, 1):
                 set_competing_interactions(plates, beta_DeltaG0a,
                                            beta_DeltaG0a + beta_DeltaDeltaG)
                 plates.update()
@@ -272,7 +272,7 @@ def figure5a():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig5a.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig5a.gp']).terminate()
 
 
 # Figure 5b
@@ -303,7 +303,7 @@ def figure5b():
 
             f.write('\n\n')
 
-    subprocess.call(['gnuplot', 'plot_fig5b.gp'])
+    subprocess.Popen(['gnuplot', 'plot_fig5b.gp']).terminate()
 
 # Main module
 figure2()
