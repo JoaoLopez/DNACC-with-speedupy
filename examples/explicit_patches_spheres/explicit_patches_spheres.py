@@ -32,7 +32,7 @@ def setup_explicit(sphere_list, patches):
     spheres = dnacc.Spheres()
     spheres.set_tether_prototype(L=L)
 
-    for name, props in sphere_list.iteritems():
+    for name, props in sphere_list.items():
         spheres.add_sphere(name, props['centre'], props['radius'])
 
     # Generate grafting points for patches centered at 0.0
@@ -81,7 +81,7 @@ with open('results.txt', 'w') as f:
     for h in np.linspace(0.05 * L, 2.00 * L, 40):
         system.sphere_centre_at('right_ball', (1000 * nm + h, 0.0, 0.0))
         F = system.free_energy
-        print "%g\t%g" % (h / nm, F)
+        print("%g\t%g" % (h / nm, F))
         f.write("%g\t%g\n" % (h / nm, F))
 
-subprocess.call(['gnuplot', 'plot_results.gp'])
+subprocess.Popen(['gnuplot', 'plot_results.gp']).terminate()
