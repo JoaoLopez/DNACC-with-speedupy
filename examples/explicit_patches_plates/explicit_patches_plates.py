@@ -28,7 +28,7 @@ from dnacc.units import nm
 
 def setup_explicit(L, sigma, patch_radii):
     # Set up system
-    boxL = 4 * max(patch_radii.itervalues()) + 4 * L
+    boxL = 4 * max(patch_radii.values()) + 4 * L
     plates = dnacc.Plates(boxL, boxL, periodic=True)
     plates.set_tether_prototype(L=L)
 
@@ -68,7 +68,7 @@ def run(L, sigma, beta_DeltaG0, patch_radii, skip=False, plates=None):
 
     if plates is None:
         plates = setup_explicit(L, sigma, patch_radii)
-    max_patch_radii = max(patch_radii.itervalues())
+    max_patch_radii = max(patch_radii.values())
 
     if skip:
         return plates
@@ -76,8 +76,8 @@ def run(L, sigma, beta_DeltaG0, patch_radii, skip=False, plates=None):
     filename = ("patch_results_L%gnm_S%g_dg%gkT_upperR%gnm_lowerR%gnm.dat" %
                 (L / nm, sqrt(1 / sigma) / L, beta_DeltaG0,
                  patch_radii['upper'] / nm, patch_radii['lower'] / nm))
-    print "Working on %s" % filename
-    print "Total number of tethers: %d" % len(plates.tethers)
+    print("Working on %s" % filename)
+    print("Total number of tethers: %d" % len(plates.tethers))
 
     with open(filename, 'w') as f:
         f.write("# d (nm)\t" "h (nm)\t" "F (kT)\n")
@@ -101,23 +101,23 @@ np.random.seed(1)  # To make the following plots deterministic
 
 run(L=20 * nm, sigma=1 / (20 * nm) ** 2, beta_DeltaG0=-10,
     patch_radii=dict(upper=100 * nm, lower=100 * nm), skip=True)
-subprocess.call(['gnuplot', 'plot_patch1.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch1.gp']).terminate()
 
 run(L=20 * nm, sigma=1 / (20 * nm) ** 2, beta_DeltaG0=-10,
     patch_radii=dict(upper=100 * nm, lower=50 * nm), skip=True)
-subprocess.call(['gnuplot', 'plot_patch2.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch2.gp']).terminate()
 
 run(L=10 * nm, sigma=1 / (10 * nm) ** 2, beta_DeltaG0=-10,
     patch_radii=dict(upper=10 * nm, lower=10 * nm), skip=True)
-subprocess.call(['gnuplot', 'plot_patch3.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch3.gp']).terminate()
 
 run(L=10 * nm, sigma=1 / (8 * nm) ** 2, beta_DeltaG0=-10,
     patch_radii=dict(upper=10 * nm, lower=10 * nm), skip=True)
-subprocess.call(['gnuplot', 'plot_patch4.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch4.gp']).terminate()
 
 run(L=10 * nm, sigma=1 / (5 * nm) ** 2, beta_DeltaG0=-10,
     patch_radii=dict(upper=10 * nm, lower=10 * nm), skip=True)
-subprocess.call(['gnuplot', 'plot_patch5.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch5.gp']).terminate()
 
 nice_patch = run(L=20 * nm, sigma=1 / (20 * nm) ** 2, beta_DeltaG0=-8,
                  patch_radii=dict(upper=100 * nm, lower=100 * nm))
@@ -127,4 +127,4 @@ run(L=20 * nm, sigma=1 / (20 * nm) ** 2, beta_DeltaG0=-7,
 run(L=20 * nm, sigma=1 / (20 * nm) ** 2, beta_DeltaG0=-6,
     patch_radii=dict(upper=100 * nm, lower=100 * nm),
     plates=nice_patch)
-subprocess.call(['gnuplot', 'plot_patch6.gp'])
+subprocess.Popen(['gnuplot', 'plot_patch6.gp']).terminate()
