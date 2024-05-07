@@ -54,7 +54,7 @@ for S in 0.25, 0.75:
     plates.tether_types[ALPHA]['sigma'] = sigma
     plates.tether_types[ALPHA_P]['sigma'] = sigma
 
-    for betaDeltaG0 in xrange(-7, -2):
+    for betaDeltaG0 in range(-7, -2):
         plates.beta_DeltaG0['alpha', 'alphap'] = betaDeltaG0
 
         betaFPlate = [plates.at(h).free_energy_density for h in hArr]
