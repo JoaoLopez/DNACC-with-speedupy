@@ -182,8 +182,8 @@ for T in (30.5, 32.0, 33.0, 35.0, 36.0):
         resampBetaF = interpBetaF(resampHArr)
         resampExpMinusBetaF = np.exp(-resampBetaF)
 
-        paddedInput = np.concatenate((np.zeros(Ncn / 2), resampExpMinusBetaF,
-                                      np.ones(Ncn / 2)))
+        paddedInput = np.concatenate((np.zeros(int(Ncn / 2)), resampExpMinusBetaF,
+                                      np.ones(int(Ncn / 2))))
         blurredExpMinusBetaF = np.convolve(paddedInput, filtY, mode='valid')
         blurredBetaF = -np.log(blurredExpMinusBetaF)
 
