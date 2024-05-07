@@ -296,8 +296,9 @@ if explicit:
             t_type = t['type']
 
 
+            t_type = t_type.decode("utf-8")
 
-        t_type = t_type.decode("utf-8")
+
 
         try:
             p_name = int(t['particle'])

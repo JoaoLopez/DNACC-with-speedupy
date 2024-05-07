@@ -39,8 +39,8 @@ rm aa bb cc
 grep "((1, 'plate1'), (3, 'plate2'))" BONDS > BONDS_explicit_h=1.00-strong
 
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-5kt_explicit.txt
-../../../simple_dnacc CONTROL_POTENTIAL_dg-15kt_explicit.txt--exclude /.local/lib/python2.6/site-packages/scipy*
+../../../simple_dnacc CONTROL_POTENTIAL_dg-15kt_explicit.txt #--exclude /.local/lib/python2.6/site-packages/scipy*
 
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-25kt_explicit.txt
 
-gnuplot plot.gp
+#gnuplot plot.gp
