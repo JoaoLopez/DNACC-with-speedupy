@@ -26,4 +26,4 @@
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-14kT-meanfield.txt
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-24kT-meanfield.txt
 
-gnuplot plot.gp
+# gnuplot plot.gp
