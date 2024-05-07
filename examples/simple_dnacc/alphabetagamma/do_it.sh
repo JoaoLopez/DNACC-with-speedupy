@@ -56,4 +56,4 @@ rm aa bb cc
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-15kT_explicit.txt
 ../../../simple_dnacc CONTROL_POTENTIAL_dg-25kT_explicit.txt
 
-gnuplot plot.gp
+#gnuplot plot.gp
