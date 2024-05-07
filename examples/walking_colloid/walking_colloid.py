@@ -45,10 +45,10 @@ ts = plates.tether_types
 
 def do_it(beta_DeltaG0Mid):
 
-    print 'Working on beta_DeltaG0Mid = %g' % beta_DeltaG0Mid
+    print('Working on beta_DeltaG0Mid = %g' % beta_DeltaG0Mid)
 
     # and various energy gaps
-    for beta_Delta in xrange(0, 10):
+    for beta_Delta in range(0, 10):
 
         plates.beta_DeltaG0['alpha', 'beta1'] = \
             beta_DeltaG0Mid - 0.5 * beta_Delta
@@ -91,5 +91,5 @@ def do_it(beta_DeltaG0Mid):
                     f.write('%.2f\t%.4f\t%.4f\n' %
                             (c, minBetaF + offset, minH / nm))
 
-for beta_DeltaG0Mid in xrange(-20, 1):
+for beta_DeltaG0Mid in range(-20, 1):
     do_it(beta_DeltaG0Mid)
