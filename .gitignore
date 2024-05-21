@@ -7,3 +7,8 @@ build
 dist
 MANIFEST
 docs/_build
+*.eps
+*.aux
+*.log
+*.tex
+OUTPUT_explicit_-15kt
