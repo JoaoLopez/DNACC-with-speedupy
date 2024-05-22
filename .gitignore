@@ -16,4 +16,5 @@ docs/_build
 *.gp
 *.dat
 *.png
-OUTPUT_explicit_-15kt
+OUTPUT*
+BONDS*
