@@ -27,6 +27,10 @@
 # W.B. Rogers and J.C. Crocker, Proc. Natl. Acad. Sci. USA 108, 15687 (2011),
 #   doi: 10.1073/pnas.1109853108
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import pi
 import subprocess
