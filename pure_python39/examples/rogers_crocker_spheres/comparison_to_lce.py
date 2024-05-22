@@ -15,6 +15,10 @@
 
 #!/usr/bin/env python
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import pi, sqrt, acos, cos, atan2, log
 import subprocess

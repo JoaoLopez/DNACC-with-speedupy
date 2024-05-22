@@ -65,6 +65,10 @@
 # Note: Q_ij has not been divided by rho_0 ( = 75.2768 * (5 nm)**3),
 # which matches the definition of Q^cnf_ij in the paper.
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 __all__ = ['ExplicitSSDNAStatistics', 'MeanFieldSSDNAStatistics']
 
 import os

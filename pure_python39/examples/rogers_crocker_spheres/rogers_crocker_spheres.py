@@ -15,6 +15,10 @@
 
 #!/usr/bin/env python
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import dnacc
 from dnacc import units, physics
 from dnacc.units import nm
