@@ -11,4 +11,9 @@ docs/_build
 *.aux
 *.log
 *.tex
+*.pdf
+*.txt
+*.gp
+*.dat
+*.png
 OUTPUT_explicit_-15kt
