@@ -20,6 +20,10 @@
 # B.M. Mognetti, M.E. Leunissen and D. Frenkel, Soft Matter 8, 2213 (2012),
 #   doi: 10.1039/c2sm06635a
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import sqrt
 import subprocess
