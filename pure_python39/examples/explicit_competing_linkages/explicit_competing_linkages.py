@@ -28,6 +28,10 @@
 # number of X-type bonds formed relative to the maximum possible number of
 # weak bonds.
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import pi, sqrt
 import subprocess
