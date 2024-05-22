@@ -31,6 +31,9 @@
 # to Mirjam's interpolation formula breaking down when the strongest
 # plate-plate interaction energy density exceeds 2 kT / L^2
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
 
 import dnacc
 from dnacc.units import nm
