@@ -20,6 +20,10 @@
 # Written by Patrick Varilly, 7 Nov 2011
 # Adapted to new dnacc module, Feb 2012
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 import subprocess
 import operator
