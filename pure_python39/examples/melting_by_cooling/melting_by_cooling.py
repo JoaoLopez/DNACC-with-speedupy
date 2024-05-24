@@ -21,6 +21,10 @@
 # as a design principle for DNA-coated colloids", Nature Materials (11),
 # 518--522 (2012)
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import sqrt
 import subprocess
