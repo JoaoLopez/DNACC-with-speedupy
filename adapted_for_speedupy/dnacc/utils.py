@@ -229,10 +229,6 @@ class csr_matrix_from_dict(object):
 
 @deterministic
 def csr_matrix_items(mtx, row=None):
-    print("========================================================================")
-    print(type(mtx))
-    print("========================================================================")
-
     """A generator to efficiently iterate through CSR matrix items.
 
     If the matrix were stored as a dictionary ``d``, this method is
