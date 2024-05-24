@@ -14,10 +14,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys, os
-PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
-sys.path.append(PROJECT_FOLDER)
-REPOSITORY_FOLDER = os.path.join(PROJECT_FOLDER, '..')
-sys.path.append(REPOSITORY_FOLDER)
 
 from speedupy.speedupy import initialize_speedupy
 
