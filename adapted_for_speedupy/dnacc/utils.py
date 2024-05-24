@@ -227,7 +227,6 @@ class csr_matrix_from_dict(object):
         else:
             return 0.0
 
-@deterministic
 def csr_matrix_items(mtx, row=None):
     """A generator to efficiently iterate through CSR matrix items.
 
