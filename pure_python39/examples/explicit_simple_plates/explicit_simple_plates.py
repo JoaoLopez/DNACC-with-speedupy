@@ -23,6 +23,10 @@
 # but the fixed-point iteration was performed to a looser tolerance (hence
 # the slight numerical differences)
 
+import sys, os
+PROJECT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.append(PROJECT_FOLDER)
+
 import numpy as np
 from math import pi, sqrt
 import subprocess
