@@ -83,6 +83,7 @@ class ssDNAStatistics(object):
         if system.separation <= 0:
             raise ValueError("Invalid plate separation")
 
+@initialize_speedupy
 def main():
     # Set up basic system
     plates = dnacc.PlatesMeanField(ssDNAStatistics)
@@ -148,8 +149,8 @@ def main():
                         betaF / (1 / nm ** 2)))
 
         # Now for sphere-sphere potentials
-        betaFSpheres = dnacc.calc_spheres_potential(hArr, betaFPlate, R)
-        betaFRepSpheres = dnacc.calc_spheres_potential(hArr, betaFRepPlate, R)
+        betaFSpheres = calc_spheres_potential(hArr, betaFPlate, R)
+        betaFRepSpheres = calc_spheres_potential(hArr, betaFRepPlate, R)
 
         with open('spheres-A_B-T%.1f-G%.1f.txt' %
                 (T, beta_DeltaG0), 'w') as f:
@@ -161,7 +162,7 @@ def main():
                         (h / nm, betaFRep, betaFAtt, betaF))
 
         # Same, but with the Poisson approximation
-        badBetaFSpheres = dnacc.calc_spheres_potential(hArr, badBetaFPlate, R)
+        badBetaFSpheres = calc_spheres_potential(hArr, badBetaFPlate, R)
 
         with open('bad-spheres-A_B-T%.1f-G%.1f.txt' %
                 (T, beta_DeltaG0), 'w') as f:
