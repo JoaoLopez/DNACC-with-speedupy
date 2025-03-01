@@ -13,7 +13,7 @@ def main():
     ALPHA = plates.add_tether_type(plate='upper', sticky_end='alpha')
     ALPHA_P = plates.add_tether_type(plate='lower', sticky_end='alphap')
     hArr = np.linspace(1 * nm, 40 * nm, 40)
-    for S in (0.25, 0.75):
+    for S in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1):
         sigma = 1 / (S * L) ** 2
         plates.tether_types[ALPHA]['sigma'] = sigma
         plates.tether_types[ALPHA_P]['sigma'] = sigma
