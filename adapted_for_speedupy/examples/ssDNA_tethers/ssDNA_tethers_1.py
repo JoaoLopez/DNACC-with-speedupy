@@ -48,7 +48,7 @@ def main():
     c2 = 70.2964
     zr = 273.15
     hArr = np.arange(5 * nm, 81 * nm, 1 * nm)
-    for T in (30.5, 32.0, 33.0, 35.0, 36.0, 37.0, 33.5):
+    for T in (30.5, 32.0, 33.0, 35.0, 36.0, 37.0):
         beta_DeltaG0 = -(c1 / (zr + T) - c2)
         plates.beta_DeltaG0['alpha', 'alphap'] = beta_DeltaG0
         temp1 = [plates.at(h) for h in hArr]
