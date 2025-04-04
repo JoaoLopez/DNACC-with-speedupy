@@ -3,7 +3,7 @@
 ## Experiment dependencies
 This experiment has the following dependencies: **numpy, scipy, cython**
 
-To install them, execute: **pip install numpy, scipy, cython**
+To install them, execute: **pip install numpy scipy cython**
 
 To run the experiment, make sure you have the appropriate release of SpeeduPy installed. Instructions on which release to use and how to install it can be found [here](https://github.com/dew-uff/memoization/blob/main/README.md#reproducing-the-article-analyses). Ensure that the **speedupy/** folder is located in the same directory as the main experiment script.
 
