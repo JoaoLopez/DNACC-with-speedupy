@@ -1,8 +1,9 @@
 # Sphere Potentials Experiment
 
 ## Experiment dependencies
-This experiment has the following dependencies: numpy, scipy, cython
-To install them, execute: pip install numpy, scipy, cython
+This experiment has the following dependencies: **numpy, scipy, cython**
+
+To install them, execute: **pip install numpy, scipy, cython**
 
 ## Experiment Setup
 Before executing the experiment, it is necessary to set it up, executing:
